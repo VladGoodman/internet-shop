@@ -6,9 +6,9 @@
         </div>
         <div class="header__right">
             <?php
-                if($user->getUsername()){
+                if($user->getFio()){
                     echo '
-                    <a href="profile.php">'.$user->getUsername().'</a>
+                    <a href="profile.php">'.$user->getFio().' ('.$user->getRole().')</a>
                     <a href="?logout">Выход</a>';
                 }else{
                     echo '

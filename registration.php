@@ -59,16 +59,16 @@ if(!$user->getUsername()){
     echo '
         <form method="post">
             <label >ФИО
-                <input type="text" name="fio">
+                <input type="text" name="fio" required>
             </label><br>
             <label >E-mail
-                <input type="email" name="email">
+                <input type="email" name="email" required>
             </label><br>
             <label >Password
-                <input type="password" name="password">
+                <input type="password" name="password" required>
             </label><br>
             <label >Reapeat password
-                <input type="password" name="repeat_password">
+                <input type="password" name="repeat_password" required>
             </label><br>
             <button type="submit">Зарегистрироваться</button>';
             echo $form_info.'

@@ -2,13 +2,13 @@
     session_start();
     require_once('bd.php');
     class User{
-        private $username;
+        private $fio;
         private $role;
         
         function __construct()
         {
-            $this->username =  $_SESSION['username']?$_SESSION['username']:'';
-            $this->role = $_SESSION['role'];
+            $this->fio =  $_SESSION['fio']?$_SESSION['fio']:'';
+            $this->role =  $_SESSION['role']?$_SESSION['role']:'';
         }
 
         private function checkExistingEmail($email){
@@ -25,12 +25,12 @@
             
         }
 
-        public function getUsername(){
-            return $this->username;
+        public function getFio(){
+            return $this->fio;
         }
 
         public function getRole(){
-            return $this->role;
+            return (int) $this->role;
         }
 
         public function auth($email, $password){
