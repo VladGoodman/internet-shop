@@ -1,11 +1,12 @@
 <?php
+    session_start();
     require_once('bd.php');
     class User{
         private $username;
         private $role;
         function __construct()
         {
-            $this->username =  $_SESSION['username'];
+            $this->username =  $_SESSION['username']?$_SESSION['username']:'';
             $this->role = $_SESSION['role'];
         }
         private function checkExistingUsername($username){
@@ -53,6 +54,13 @@
                 }
             }
         }
+        public function logout(){
+            session_destroy();
+            header('refresh:0; url=login.php');
+        }
     }
     $user = new User;
+    if(isset($_GET['logout'])){
+        $user->logout();
+    }
 ?>
