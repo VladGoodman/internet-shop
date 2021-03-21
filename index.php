@@ -1,6 +1,6 @@
 <?php 
-    require 'user_module.php'; 
-    require 'products_module.php'; 
+    require 'modules/user_module.php'; 
+    require 'modules/products_module.php'; 
     if(!empty($user->getFio())){
         require 'basket.php';
     }

@@ -1,5 +1,5 @@
 <?php
-require 'user_module.php'; 
+require 'modules/user_module.php'; 
 echo $user->getFio();
 if(!empty($_POST)){
     if(!empty($_POST['email']) and !empty($_POST['password'])){

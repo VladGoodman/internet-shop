@@ -1,6 +1,5 @@
 <?php
-require 'basket_module.php'; 
-
+require 'modules/basket_module.php'; 
 if(isset($_GET['action']) && $_GET['action']==='add'){
     if($basket->addItemInBasket($_GET['id']) === true){
         header('Location: http://localhost/LPR%207/2/index.php');
@@ -15,8 +14,9 @@ if(isset($_GET['action']) && $_GET['action']==='delete_product'){
     }
 }
 
-
-
+if(isset($_GET['action']) && $_GET['action']==='order_add'){
+    $basket->addOreder();
+}
     
 ?>
 <div class="basket bg-dark">

@@ -1,5 +1,5 @@
 <?php
-require 'user_module.php'; 
+require 'modules/user_module.php'; 
 setlocale(LC_ALL, "ru_RU.UTF-8");
 
 function checkFioForCorrectness($string){
