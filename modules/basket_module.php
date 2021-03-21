@@ -51,6 +51,28 @@
             $this->clearBasket();
             return true;
         }
+        
+        public function getAllOreder(){
+            global $mysql;
+            $query = "SELECT * FROM `orders`";
+            $result = mysqli_query($mysql, $query);
+            $result_array = [];
+            while($row = mysqli_fetch_assoc($result)){
+                $result_array[] = $row;
+            }
+            return $result_array;
+        }
+
+        public function delOrder($id){
+            global $mysql;
+            $query = "DELETE FROM `orders` WHERE id=$id";
+            $result = mysqli_query($mysql, $query);
+            if($result == 'TRUE'){
+                return true;
+            }else{
+                return false;
+            }
+        }
 
     }
     $basket = new Basket();

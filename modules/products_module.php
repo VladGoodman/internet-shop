@@ -45,6 +45,16 @@
             }
         }
 
+        public function updateProduct($id, $name, $descr, $price){
+            global $mysql;
+            $query = "UPDATE `product` SET `name`='$name',`descr`='$descr',`price`=$price WHERE id=$id";
+            $result = mysqli_query($mysql, $query);
+            if($result == 'TRUE'){
+                return true;
+            }else{
+                return false;
+            }
+        }
         public function deleteProduct($id){
             global $mysql;
             $query = "DELETE FROM `product` WHERE id=$id";
