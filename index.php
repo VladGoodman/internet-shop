@@ -6,7 +6,8 @@
     }
     echo '<div class="container">';
         require 'header.php';
-        echo '<div>';
+        echo '<h1>Товары: </h1>
+        <div>';
         foreach($product->getAllProduct() as $product){
             echo '<hr>';
             echo $product['name'];

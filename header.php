@@ -4,21 +4,26 @@
 </head>
 <header>
     <div class="container">
-        <div class="header__left">
-            <a href="index.php">Главная</a>
-        </div>
-        <div class="header__right">
-            <?php
-                if($user->getFio()){
-                    echo '
-                    <a href="profile.php">'.$user->getFio().' ('.$user->getRole().')</a>
-                    <a href="?logout">Выход</a>';
-                }else{
-                    echo '
-                    <a href="login.php">Вход</a>
-                    <a href="registration.php">Регистрация</a>';
-                }
-            ?>
+        <div class="header">
+            <div class="header__left">
+                <a href="index.php">Главная</a>
+            </div>
+            <div class="header__right">
+                <?php
+                    if($user->getFio()){
+                        if($user->getRole() == 1){
+                            echo '<a href="admin.php">Admin panel</a>';
+                        }
+                        echo '
+                        <a href="profile.php">Profile - '.$user->getFio().'</a>
+                        <a href="?logout">Выход</a>';
+                    }else{
+                        echo '
+                        <a href="login.php">Вход</a>
+                        <a href="registration.php">Регистрация</a>';
+                    }
+                ?>
+            </div>
         </div>
     </div>
 </header>

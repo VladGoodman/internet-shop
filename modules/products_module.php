@@ -1,6 +1,18 @@
 <?php
     require_once('bd.php');
     class Product{
+
+        public function createProduct($name, $descr,$price){
+            global $mysql;
+            $query = "INSERT INTO `product`(`name`, `descr`, `price`) VALUES ('$name', '$descr', '$price')";
+            $result = mysqli_query($mysql, $query);
+            if($result == 'TRUE'){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
         public function getAllProduct(){
             global $mysql;
             $query = "SELECT * FROM `product`";
@@ -21,6 +33,7 @@
                 }
             }
         }
+
         public function getNameForId($id){
             global $mysql;
             $query = "SELECT name FROM `product` WHERE id=$id";
@@ -29,6 +42,17 @@
                 if($product = mysqli_fetch_assoc($result)){
                     return $product['name'];
                 }
+            }
+        }
+
+        public function deleteProduct($id){
+            global $mysql;
+            $query = "DELETE FROM `product` WHERE id=$id";
+            $result = mysqli_query($mysql, $query);
+            if($result == 'TRUE'){
+                return true;
+            }else{
+                return false;
             }
         }
     }
