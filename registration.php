@@ -55,7 +55,7 @@ if(!empty($_POST)){
 // HTML CONTENT
 require 'header.php';
 
-if(!$user->getUsername()){
+if(!$user->getFio()){
     echo '
         <form method="post">
             <label >ФИО
